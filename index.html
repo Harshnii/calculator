@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <h1>Calculator</h1>
+    <div id="calculator">
+        <input type="text" id="display" disabled>
+        <br>
+        <button onclick="appendToDispaly('1')">1</button>
+        <button onclick="appendToDispaly('2')">2</button>
+        <button onclick="appendToDispaly('3')">3</button>
+        <button onclick="appendToDispaly('+')">+</button>
+        <br>
+        <button onclick="appendToDispaly('4')">4</button>
+        <button onclick="appendToDispaly('5')">5</button>
+        <button onclick="appendToDispaly('6')">6</button>
+        <button onclick="appendToDispaly('-')">-</button>
+        <br>
+        <button onclick="appendToDispaly('7')">7</button>
+        <button onclick="appendToDispaly('8')">8</button>
+        <button onclick="appendToDispaly('9')">9</button>
+        <button onclick="appendToDispaly('*')">*</button>
+        <br>
+        <button onclick="appendToDispaly('0')">0</button>
+        <button onclick="appendToDispaly('/')">/</button>
+        <button id="clear" onclick="clearDisplay()">C</button>
+        <button id="equals" onclick="calculateResult()">=</button>
+        
+    </div>
+    <script>
+        function appendToDispaly(value){
+            document.getElementById('display').value+=value;
+
+        }
+        function clearDisplay(){
+            document.getElementById('display').value='';
+
+        }
+        function calculateResult(){
+            var expression=document.getElementById('display').value;
+            var result;
+            try{
+                result=eval(expression);
+                document.getElementById('display').value=result;
+            }
+            catch(error){
+                document.getElementById('display').value='Error';
+            }
+        }
+
+    </script>
+    
+</body>
+</html>
